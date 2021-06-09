@@ -103,32 +103,37 @@ public class CheckoutLine{
    
    //toString Method
    public String toString(){
-      checkLines();
-      int holdLines = lines;
+      int holdLines;
       
       String list = "";
       IntNodeCustomer nTemp = nHead;
       IntNodeCustomer fTemp = fHead;
-      
+            
       if(isEmpty()){
          return "There is no one in line.";
       }
-      
+      checkLines();
+      holdLines = lines;
       while(nTemp != null && fTemp !=null){
          switch(holdLines){
             case 1:
+               //list = list + nHead.toString() + "\n";
                list = list + nTemp.toString() + "\n";
                nTemp = nTemp.getNext();
-               holdLines = 2;
+               if(fTemp != null){
+                  holdLines = 2;
+               }
                break;
             case 2:
+               //list = list + fHead.toString() + "\n";
                list = list + fTemp.toString() + "\n";
                fTemp = fTemp.getNext();
-               holdLines = 1;
+               if(nTemp != null){
+                  holdLines = 1;
+               }
                break;
          }
       }
-      
       return "Line:\n" + list;
    }
 }
