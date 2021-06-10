@@ -19,24 +19,24 @@ public class CheckoutLine{
             IntNodeCustomer customer = new IntNodeCustomer(name, inputData);
             fHead = customer;
             fTail = customer;
-            lines = 2;
+            lines = 1;
          }else{
             IntNodeCustomer customer = new IntNodeCustomer(name, inputData);
             fTail.setNext(customer);
             fTail = customer;
-            lines = 2;
+            lines = 1;
          }
       }else{
          if(nHead == null){
             IntNodeCustomer customer = new IntNodeCustomer(name, inputData);
             nHead = customer;
             nTail = customer;
-            lines = 1;
+            lines = 2;
          }else{
             IntNodeCustomer customer = new IntNodeCustomer(name, inputData);
             nTail.setNext(customer);
             nTail = customer;
-            lines = 1;
+            lines = 2;
          }
       }      
    }
@@ -60,6 +60,7 @@ public class CheckoutLine{
             System.out.println("There is no one in line to check out!");
             break;
          case 1:
+            System.out.println(nHead.getName() + " is checking out with " + nHead.getData() + " item(s)");
             nHead.setNext(nHead.getNext());
             if(nHead == nTail){
                nHead = null;
@@ -67,6 +68,7 @@ public class CheckoutLine{
             lines = 2;
             break;
          case 2:
+            System.out.println(fHead.getName() + " is checking out with " + fHead.getData() + " item(s)");
             fHead.setNext(fHead.getNext());
             if(fHead == fTail){
                fHead = null;
@@ -114,7 +116,7 @@ public class CheckoutLine{
       }
       checkLines();
       holdLines = lines;
-      while(nTemp != null && fTemp !=null){
+      while(nTemp != null || fTemp !=null){
          switch(holdLines){
             case 1:
                //list = list + nHead.toString() + "\n";
