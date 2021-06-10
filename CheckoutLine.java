@@ -61,17 +61,21 @@ public class CheckoutLine{
             break;
          case 1:
             System.out.println(nHead.getName() + " is checking out with " + nHead.getData() + " item(s)");
-            nHead.setNext(nHead.getNext());
             if(nHead == nTail){
                nHead = null;
+               nTail = null;
+            }else{
+               nHead = nHead.getNext();
             }
             lines = 2;
             break;
          case 2:
             System.out.println(fHead.getName() + " is checking out with " + fHead.getData() + " item(s)");
-            fHead.setNext(fHead.getNext());
             if(fHead == fTail){
                fHead = null;
+               fTail = null;
+            }else{
+               fHead = fHead.getNext();
             }
             lines = 1;
             break;

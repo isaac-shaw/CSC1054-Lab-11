@@ -45,7 +45,7 @@ public class lab11ClientPart2{
          //Switch statement for user choice
          switch(choice){
             case "1":
-               //Prompr User for data
+               //Prompt User for data
                System.out.println("Enter the customer’s name and number of items:");
                String name = scan.next();
                int numOfItems = scan.nextInt();
